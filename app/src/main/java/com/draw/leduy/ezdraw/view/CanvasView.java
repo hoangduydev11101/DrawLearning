@@ -1,6 +1,7 @@
 package com.draw.leduy.ezdraw.view;
 
 import android.content.Context;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -15,6 +16,11 @@ import android.view.View;
 
 public class CanvasView extends View {
 
+    private TypePath mTypePath = TypePath.BRUSH;
+
+    public void setTypePath() {
+
+    }
     private static final float TOLERANCE = 5;
     public int width;
     public int height;
@@ -79,6 +85,12 @@ public class CanvasView extends View {
         invalidate();
     }
 
+    @Override
+    protected void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+
+    }
+
     public void setPathStrokeColor(int color) {
         if (mPaint == null)
             return;
@@ -121,6 +133,8 @@ public class CanvasView extends View {
             mY = y;
         }
     }
+
+    public enum TypePath {PENCIL, CYRAN, BRUSH, SMOOTH}
 
     public void earsePath() {
         if (mPaint == null)
