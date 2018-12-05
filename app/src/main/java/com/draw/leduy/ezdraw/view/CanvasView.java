@@ -18,9 +18,7 @@ public class CanvasView extends View {
 
     private TypePath mTypePath = TypePath.BRUSH;
 
-    public void setTypePath() {
 
-    }
     private static final float TOLERANCE = 5;
     public int width;
     public int height;
@@ -54,6 +52,15 @@ public class CanvasView extends View {
 
         mPaint.setColor(ActivityCompat.getColor(mContext, color));
         invalidate();
+    }
+
+    public void setTypePath(TypePath typePath) {
+        mTypePath = typePath;
+        invalidate(mTypePath);
+    }
+
+    private void invalidate(TypePath typePath) {
+        // TODO handler type (pencel, brush,...)
     }
 
     // set size path
